@@ -1,0 +1,22 @@
+# Run on the server, from the folder that holds this file, Caddyfile, .env and dist/.
+services:
+  web:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      # Set in .env next to this file, e.g. SITE_DOMAIN=yourname.duckdns.org
+      SITE_DOMAIN: ${SITE_DOMAIN:?Set SITE_DOMAIN in .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./dist:/srv:ro
+      # Certificates live here; keep this volume so they survive restarts.
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

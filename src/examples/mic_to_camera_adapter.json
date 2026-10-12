@@ -1,0 +1,19 @@
+{
+  "fileFormatVersion": "1",
+  "parameterSets": {
+    "Tight fit (well-tuned printer)": {
+      "ext_clear": "0.1",
+      "int_clear": "0.15"
+    },
+    "Loose fit": {
+      "ext_clear": "0.3",
+      "int_clear": "0.4"
+    },
+    "Tall grip": {
+      "body_d": "26",
+      "body_h": "22",
+      "socket_depth": "14",
+      "knurl_count": "32"
+    }
+  }
+}
